@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vh;
+  height: 100vh;
+}
+
+.keys {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+
+  .key {
+    width: 55px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    text-align: center;
+    transition: all .06s;
+    &.playing {
+      border: 3px solid firebrick;
+      transform: scale(1.05);
+    }
+    kbd {
+      font-size: 36px;
+    }
+    span {
+      font-size: 14px;
+    }
+  }
+}
+
+@mixin drum-part {
+  position: absolute;
+  border-radius: 50%;
+  border-color: transparent;
+  z-index: 1;
+  filter: brightness(1);
+  cursor: pointer;
+  transition: all .06s ease;
+  opacity: 0;
+}
+
+.drums {
+  margin-top: 20px;
+  position: relative;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .playing {
+    filter: brightness(1.2);
+    opacity: 0.3;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+  }
+
+  &_floor-tom {
+    @include drum-part;
+    width: 160px;
+    height: 160px;
+    right: 66px;
+    bottom: 98px;
+  }
+  &_snare {
+    @include drum-part;
+    width: 139px;
+    height: 139px;
+    left: 145px;
+    bottom: 92px;
+  }
+  &_hihat {
+    @include drum-part;
+    width: 108px;
+    height: 108px;
+    left: 61px;
+    bottom: 164px;
+    z-index: 2;
+  }
+  &_kick {
+    @include drum-part;
+    width: 39px;
+    height: 100px;
+    left: 51%;
+    bottom: 110px;
+    border-radius: 0;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      border-style: solid;
+      border-width: 0 19.5px 100px 19.5px;
+      top: 0;
+      border-color: transparent transparent #fff transparent;
+    }
+
+    &::before {
+      right: 15px;
+    }
+
+    &::after {
+      left: 15px;
+    }
+
+    //.playing {
+    //  &::before,
+    //  &::after {
+    //    border-color: transparent transparent rgba(0, 123, 255, 0.7) transparent;
+    //  }
+    //}
+  }
+  &_ride {
+    @include drum-part;
+    width: 120px;
+    height: 120px;
+    right: 88px;
+    z-index: 3;
+    top: 86px;
+  }
+  &_crash {
+    @include drum-part;
+    width: 132px;
+    height: 132px;
+    left: 110px;
+    top: 102px;
+    z-index: 3;
+  }
+  &_hi-tom {
+    @include drum-part;
+    width: 117px;
+    height: 117px;
+    right: 161px;
+    top: 158px;
+    z-index: 2;
+  }
+  &_mid-tom {
+    @include drum-part;
+    width: 96px;
+    height: 96px;
+    left: 215px;
+    top: 170px;
+    z-index: 2;
+  }
+
+}

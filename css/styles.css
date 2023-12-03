@@ -1,0 +1,190 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vh;
+  height: 100vh;
+}
+
+.keys {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.keys .key {
+  width: 55px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  text-align: center;
+  transition: all 0.06s;
+}
+.keys .key.playing {
+  border: 3px solid firebrick;
+  transform: scale(1.05);
+}
+.keys .key kbd {
+  font-size: 36px;
+}
+.keys .key span {
+  font-size: 14px;
+}
+
+.drums {
+  margin-top: 20px;
+  position: relative;
+}
+.drums img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.drums .playing {
+  filter: brightness(1.2);
+  opacity: 0.3;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+}
+.drums_floor-tom {
+  position: absolute;
+  border-radius: 50%;
+  border-color: transparent;
+  z-index: 1;
+  filter: brightness(1);
+  cursor: pointer;
+  transition: all 0.06s ease;
+  opacity: 0;
+  width: 160px;
+  height: 160px;
+  right: 66px;
+  bottom: 98px;
+}
+.drums_snare {
+  position: absolute;
+  border-radius: 50%;
+  border-color: transparent;
+  z-index: 1;
+  filter: brightness(1);
+  cursor: pointer;
+  transition: all 0.06s ease;
+  opacity: 0;
+  width: 139px;
+  height: 139px;
+  left: 145px;
+  bottom: 92px;
+}
+.drums_hihat {
+  position: absolute;
+  border-radius: 50%;
+  border-color: transparent;
+  z-index: 1;
+  filter: brightness(1);
+  cursor: pointer;
+  transition: all 0.06s ease;
+  opacity: 0;
+  width: 108px;
+  height: 108px;
+  left: 61px;
+  bottom: 164px;
+  z-index: 2;
+}
+.drums_kick {
+  position: absolute;
+  border-radius: 50%;
+  border-color: transparent;
+  z-index: 1;
+  filter: brightness(1);
+  cursor: pointer;
+  transition: all 0.06s ease;
+  opacity: 0;
+  width: 39px;
+  height: 100px;
+  left: 51%;
+  bottom: 110px;
+  border-radius: 0;
+}
+.drums_kick::before, .drums_kick::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-style: solid;
+  border-width: 0 19.5px 100px 19.5px;
+  top: 0;
+  border-color: transparent transparent #fff transparent;
+}
+.drums_kick::before {
+  right: 15px;
+}
+.drums_kick::after {
+  left: 15px;
+}
+.drums_ride {
+  position: absolute;
+  border-radius: 50%;
+  border-color: transparent;
+  z-index: 1;
+  filter: brightness(1);
+  cursor: pointer;
+  transition: all 0.06s ease;
+  opacity: 0;
+  width: 120px;
+  height: 120px;
+  right: 88px;
+  z-index: 3;
+  top: 86px;
+}
+.drums_crash {
+  position: absolute;
+  border-radius: 50%;
+  border-color: transparent;
+  z-index: 1;
+  filter: brightness(1);
+  cursor: pointer;
+  transition: all 0.06s ease;
+  opacity: 0;
+  width: 132px;
+  height: 132px;
+  left: 110px;
+  top: 102px;
+  z-index: 3;
+}
+.drums_hi-tom {
+  position: absolute;
+  border-radius: 50%;
+  border-color: transparent;
+  z-index: 1;
+  filter: brightness(1);
+  cursor: pointer;
+  transition: all 0.06s ease;
+  opacity: 0;
+  width: 117px;
+  height: 117px;
+  right: 161px;
+  top: 158px;
+  z-index: 2;
+}
+.drums_mid-tom {
+  position: absolute;
+  border-radius: 50%;
+  border-color: transparent;
+  z-index: 1;
+  filter: brightness(1);
+  cursor: pointer;
+  transition: all 0.06s ease;
+  opacity: 0;
+  width: 96px;
+  height: 96px;
+  left: 215px;
+  top: 170px;
+  z-index: 2;
+}
+
+/*# sourceMappingURL=styles.css.map */

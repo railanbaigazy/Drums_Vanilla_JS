@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drums</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main>
+        <div class="keys">
+            <div data-key="65" class="key">
+                <kbd>A</kbd>
+                <span>crash</span>
+            </div>
+            <div data-key="83" class="key">
+                <kbd>S</kbd>
+                <span>hi tom</span>
+            </div>
+            <div data-key="68" class="key">
+                <kbd>D</kbd>
+                <span>hihat</span>
+            </div>
+            <div data-key="70" class="key">
+                <kbd>F</kbd>
+                <span>kick</span>
+            </div>
+            <div data-key="71" class="key">
+                <kbd>G</kbd>
+                <span>openhat</span>
+            </div>
+            <div data-key="72" class="key">
+                <kbd>H</kbd>
+                <span>ride</span>
+            </div>
+            <div data-key="74" class="key">
+                <kbd>J</kbd>
+                <span>snare</span>
+            </div>
+            <div data-key="75" class="key">
+                <kbd>K</kbd>
+                <span>mid tom</span>
+            </div>
+            <div data-key="76" class="key">
+                <kbd>L</kbd>
+                <span>floor tom</span>
+            </div>
+        </div>
+        <div class="drums">
+            <button data-key="75" class="drum drums_hi-tom" onclick="play(this.dataset.key)"></button>
+            <button data-key="65" class="drum drums_crash" onclick="play(this.dataset.key)"></button>
+            <button data-key="83" class="drum drums_mid-tom" onclick="play(this.dataset.key)"></button>
+            <button data-key="76" class="drum drums_floor-tom" onclick="play(this.dataset.key)"></button>
+            <button data-key="74" class="drum drums_snare" onclick="play(this.dataset.key)"></button>
+            <button data-key="68" class="drum drums_hihat" onclick="play(this.dataset.key)"></button>
+            <button data-key="70" class="drum drums_kick" onclick="play(this.dataset.key)"></button>
+            <button data-key="72" class="drum drums_ride" onclick="play(this.dataset.key)"></button>
+            <img src="assets/img/drum-kit.webp" alt="Drum Set">
+        </div>
+    </main>
+
+    <audio data-key="65" src="assets/sounds/crash.wav"></audio>
+    <audio data-key="83" src="assets/sounds/hi-tom.wav"></audio>
+    <audio data-key="68" src="assets/sounds/hihat.wav"></audio>
+    <audio data-key="70" src="assets/sounds/kick.wav"></audio>
+    <audio data-key="71" src="assets/sounds/openhat.wav"></audio>
+    <audio data-key="72" src="assets/sounds/ride.wav"></audio>
+    <audio data-key="74" src="assets/sounds/snare.wav"></audio>
+    <audio data-key="75" src="assets/sounds/mid-tom.wav"></audio>
+    <audio data-key="76" src="assets/sounds/floor-tom.wav"></audio>
+
+    <script>
+        const allowedKeys = [];
+        const keys = document.querySelectorAll('.key');
+        keys.forEach(key => {
+            allowedKeys.push(key.dataset.key);
+            key.addEventListener('transitionend', () => key.classList.remove('playing'));
+        });
+
+        const drums = document.querySelectorAll('.drum');
+        drums.forEach(drum => {
+            drum.addEventListener('transitionend', () => drum.classList.remove('playing'));
+        });
+
+        window.addEventListener("keydown", (key) => {
+            const keyCode = key.keyCode;
+            if (!allowedKeys.includes(keyCode + '')) return;
+            play(keyCode);
+        });
+
+        function play(key) {
+            const audio = document.querySelector(`audio[data-key="${key}"]`);
+            const keyDiv = document.querySelector(`.key[data-key="${key}"]`);
+            const button = document.querySelector(`button[data-key="${key}"]`);
+            audio.currentTime = 0;
+            audio.play();
+            keyDiv.classList.add('playing');
+            button.classList.add('playing');
+        }
+
+
+    </script>
+</body>
+</html>
