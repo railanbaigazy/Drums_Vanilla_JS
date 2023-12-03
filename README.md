@@ -28,7 +28,7 @@ Having spent over a year immersed in drumming, I've now joined a college band. L
    - Private/public songs
    - Allow users to customize their drum set (sounds)
 
-This project is not just a coding exercise; it's a musical journey, and I'm excited to see where it takes me. Here's to drumming up some fantastic code! 🥁
+The starting point for this project was drawn from www.javascript30.com. This project is not just a coding exercise; it's a musical journey, and I'm excited to see where it takes me. Here's to drumming up some fantastic code! 🥁
 
 
 
