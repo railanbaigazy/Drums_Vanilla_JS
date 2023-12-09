@@ -1,5 +1,5 @@
 # Drums_Vanilla_JS
-JS website to play drums online (v.0.01).
+JS website to play drums online (v0.1).
 
 **Message to Future Self**
 
