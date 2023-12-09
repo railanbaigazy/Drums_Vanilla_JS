@@ -13,7 +13,7 @@ Having spent over a year immersed in drumming, I've now joined a college band. L
 
 **Project Milestones:**
   
-*Version 0.01:*
+*Version 0.1:*
 1) ✅ Basic styling + project skeleton
 2) ✅ Keydown event listener + sound implementation
 3) ✅ On-click sound functionality
